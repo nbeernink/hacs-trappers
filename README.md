@@ -50,12 +50,12 @@ cards:
       - type: tile
         entity: sensor.total_trappers_trips
   - type: custom:apexcharts-card
-    graph_span: 30d
     header:
       show: true
+      title: Trappers Balance (Last 30 Days)
       show_states: true
       colorize_states: true
-      title: Trappers Balance (Last 30 Days)
+    graph_span: 30d
     series:
       - entity: sensor.trappers_balance
         name: Balance
@@ -63,10 +63,11 @@ cards:
         color: "#3498db"
         opacity: 0.3
         stroke_width: 2
-        group_by:
-          func: max
-          duration: 1d
         fill_raw: last
+        statistics:
+          type: state
+          period: day
+          align: end
   - type: grid
     columns: 2
     square: false
@@ -101,23 +102,4 @@ cards:
       green: 80
       yellow: 50
       red: 0
-  - type: custom:apexcharts-card
-    graph_span: 1y
-    header:
-      show: true
-      show_states: true
-      colorize_states: true
-      title: All Time Trappers Balance
-    series:
-      - entity: sensor.trappers_balance
-        name: Balance
-        type: area
-        color: "#9b59b6"
-        opacity: 0.3
-        stroke_width: 2
-        statistics:
-          type: max
-          period: day
-          align: end
-        fill_raw: last
 ```
