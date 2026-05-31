@@ -46,8 +46,14 @@ class TrappersEuroValueSensor(CoordinatorEntity, SensorEntity):
 
     @property
     def native_value(self):
+        from .const import CONF_GIFTCARD_COST, DEFAULT_GIFTCARD_COST
+        cost = self.coordinator.config_entry.options.get(CONF_GIFTCARD_COST, DEFAULT_GIFTCARD_COST)
         balance = self.coordinator.data.get("balance", 0)
-        return round(balance / 105, 2)
+        # 100 euro giftcard = cost trappers
+        # 1 euro = cost / 100 trappers
+        if cost == 0:
+            return 0
+        return round(balance / (cost / 100), 2)
 
 class TrappersEuroEarnedThisWeekSensor(CoordinatorEntity, SensorEntity):
     def __init__(self, coordinator):
@@ -60,8 +66,13 @@ class TrappersEuroEarnedThisWeekSensor(CoordinatorEntity, SensorEntity):
 
     @property
     def native_value(self):
+        from .const import CONF_GIFTCARD_COST, DEFAULT_GIFTCARD_COST
+        cost = self.coordinator.config_entry.options.get(CONF_GIFTCARD_COST, DEFAULT_GIFTCARD_COST)
         days = self.coordinator.data.get("days_this_week", 0)
-        return round(days * 154 / 105, 2)
+        last_reward = self.coordinator.data.get("last_reward", 154)
+        if cost == 0:
+            return 0
+        return round((days * last_reward) / (cost / 100), 2)
 
 class TrappersNextPayoutProgressSensor(CoordinatorEntity, SensorEntity):
     def __init__(self, coordinator):
@@ -73,6 +84,10 @@ class TrappersNextPayoutProgressSensor(CoordinatorEntity, SensorEntity):
 
     @property
     def native_value(self):
+        from .const import CONF_PAYOUT_GOAL, DEFAULT_PAYOUT_GOAL
+        goal = self.coordinator.config_entry.options.get(CONF_PAYOUT_GOAL, DEFAULT_PAYOUT_GOAL)
         balance = self.coordinator.data.get("balance", 0)
-        remainder = balance % 10500
-        return round((remainder / 10500) * 100, 1)
+        if goal == 0:
+            return 0
+        remainder = balance % goal
+        return round((remainder / goal) * 100, 1)

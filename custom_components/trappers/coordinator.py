@@ -16,6 +16,7 @@ class TrappersDataUpdateCoordinator(DataUpdateCoordinator):
         )
         self.email = entry.data[CONF_EMAIL]
         self.password = entry.data[CONF_PASSWORD]
+        self.config_entry = entry
 
     async def _async_update_data(self):
         try:

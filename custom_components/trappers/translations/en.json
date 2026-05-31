@@ -3,10 +3,18 @@
     "step": {
       "user": {
         "title": "Connect to Trappers",
-        "description": "Enter your Trappers.net email and password to track your gamified cycling data in Home Assistant.",
+        "description": "Enter your Trappers.net email and password to track your cycling data in Home Assistant.",
         "data": {
           "email": "Email Address",
           "password": "Password"
+        }
+      },
+      "init": {
+        "title": "Trappers Settings",
+        "description": "Configure your gamification and payout goals.",
+        "data": {
+          "giftcard_cost": "Cost of a €100 Giftcard (in Trappers)",
+          "payout_goal": "Trappers Goal for Progress Bar"
         }
       }
     },
@@ -16,6 +24,17 @@
     },
     "abort": {
       "already_configured": "Device is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Trappers Settings",
+        "data": {
+          "giftcard_cost": "Cost of a €100 Giftcard (in Trappers)",
+          "payout_goal": "Trappers Goal for Progress Bar"
+        }
+      }
     }
   }
 }
