@@ -6,7 +6,7 @@ A custom component integration that connects Home Assistant to [Trappers.net](ht
 - UI Configuration (No YAML required!)
 - Automatically creates all Trappers sensors
 - Safe asynchronous backend (`aiohttp`) prevents startup delays
-- Tracks your lifetime balance, total trips, and weekly gamification stats.
+- Tracks your lifetime balance, total trips, and recent registration data.
 
 ## Installation via HACS
 1. Open HACS in Home Assistant.
@@ -21,7 +21,7 @@ A custom component integration that connects Home Assistant to [Trappers.net](ht
 2. Click **Add Integration** in the bottom right corner.
 3. Search for **Trappers**.
 4. Enter your email and password when prompted.
-5. Enjoy your fully integrated gamified cycling dashboard!
+5. Enjoy your fully integrated Trappers dashboard!
 
 ## Example Dashboard:
 ![screenshot](images/example_dashboard.png)
