@@ -12,6 +12,12 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
 
+      - name: 📝 Inject version into manifest
+        run: |
+          VERSION="${{ github.ref_name }}"
+          VERSION="${VERSION#v}"
+          sed -i "s/\"version\": \".*\"/\"version\": \"${VERSION}\"/" custom_components/trappers/manifest.json
+
       - name: 📦 Create ZIP archive
         run: |
           cd custom_components/trappers
