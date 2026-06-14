@@ -13,6 +13,10 @@ A custom component integration that connects Home Assistant to the [Trappers API
 - Automatically creates all Trappers sensors
 
 ## Installation via HACS
+
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=AciDCooL&repository=hacs-trappers&category=Integration)
+
+**Manual steps:**
 1. Open HACS in Home Assistant.
 2. Click on Integrations.
 3. Click the 3 dots in the top right corner and select **Custom repositories**.
@@ -21,6 +25,10 @@ A custom component integration that connects Home Assistant to the [Trappers API
 6. Restart Home Assistant.
 
 ## Setup
+
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=trappers)
+
+**Manual steps:**
 1. Go to **Settings > Devices & Services** in Home Assistant.
 2. Click **Add Integration** in the bottom right corner.
 3. Search for **Trappers**.
